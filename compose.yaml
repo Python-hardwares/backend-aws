@@ -1,0 +1,6 @@
+﻿services:
+  tb2-aws:
+    image: tb2-aws
+    build:
+      context: .
+      dockerfile: Dockerfile

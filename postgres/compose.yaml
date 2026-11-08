@@ -1,0 +1,32 @@
+services:
+  db:
+    image: docker.io/library/postgres:17-alpine
+    container_name: postgres_db
+    restart: always
+    shm_size: 128mb
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "123123"
+      POSTGRES_DB: minha_database
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  adminer:
+    image: docker.io/library/adminer:latest
+    container_name: postgres_adminer
+    restart: always
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
+

@@ -1,0 +1,6 @@
+@TB2_aws_HostAddress = http://localhost:5059
+
+GET {{TB2_aws_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
