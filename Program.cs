@@ -20,6 +20,15 @@ static string RequiredEnvironment(string name)
         : value;
 }
 
+var serverHost = RequiredEnvironment("SERVER_HOST");
+if (!int.TryParse(RequiredEnvironment("SERVER_PORT"), out var serverPort)
+    || serverPort is < 1 or > 65535)
+{
+    throw new InvalidOperationException("SERVER_PORT precisa estar entre 1 e 65535.");
+}
+
+builder.WebHost.UseUrls($"http://{serverHost}:{serverPort}");
+
 var jwtSecret = RequiredEnvironment("JWT_SECRET");
 if (Encoding.UTF8.GetByteCount(jwtSecret) < 32)
 {

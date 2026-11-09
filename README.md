@@ -46,12 +46,11 @@ dotnet ef database update
 dotnet run
 ```
 
-A API estará disponível em:
+A API estará disponível no endereço definido por `SERVER_HOST` e `SERVER_PORT` no `.env`.
 
-- <http://localhost:5059>
-- <https://localhost:7127>
+Para expor na rede, use `SERVER_HOST=0.0.0.0`; acesse pelo IP da máquina, por exemplo `http://192.168.1.20:5059`.
 
-O Swagger está disponível em <http://localhost:5059/swagger>. Faça login em `POST /api/auth/login`, copie o token retornado e use o botão **Authorize** para informar esse token.
+O Swagger está disponível em `http://<IP_DA_MAQUINA>:<SERVER_PORT>/swagger`. Faça login em `POST /api/auth/login`, copie o token retornado e use o botão **Authorize** para informar esse token.
 
 ## Autenticação
 
